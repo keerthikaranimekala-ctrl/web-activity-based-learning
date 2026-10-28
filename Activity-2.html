@@ -1,0 +1,490 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FITZONE Gym</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #111;
+    color: white;
+    line-height: 1.6;
+}
+
+header {
+    background: #000;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    color: #ff3c00;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ff3c00;
+}
+
+.hero {
+    min-height: 430px;
+    padding: 100px 20px;
+    text-align: center;
+    background: linear-gradient(120deg, #252525, #090909);
+}
+
+.hero h1 {
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+.hero span {
+    color: #ff3c00;
+}
+
+.hero p {
+    margin: 20px 0;
+    color: #ddd;
+}
+
+.btn {
+    display: inline-block;
+    background: #ff3c00;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: white;
+    color: #ff3c00;
+    transform: scale(1.05);
+}
+
+section {
+    padding: 55px 7%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.section-title span {
+    color: #ff3c00;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: #202020;
+    padding: 25px;
+    text-align: center;
+    border-radius: 10px;
+    border-bottom: 3px solid #ff3c00;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    background: #292929;
+}
+
+.card h3 {
+    color: #ff3c00;
+    margin-bottom: 12px;
+    font-size: 22px;
+}
+
+.card p {
+    color: #ddd;
+}
+
+.icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 15px 0;
+    color: #ff3c00;
+}
+
+.card ul {
+    list-style: none;
+    margin: 15px 0;
+}
+
+.card li {
+    padding: 5px;
+    color: #ddd;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #202020;
+}
+
+th, td {
+    padding: 14px;
+    text-align: center;
+    border: 1px solid #444;
+}
+
+th {
+    background: #ff3c00;
+    color: white;
+}
+
+tr:hover {
+    background: #303030;
+}
+
+form {
+    max-width: 600px;
+    margin: auto;
+    background: #202020;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background: #111;
+    color: white;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid #ff3c00;
+}
+
+form button {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.facility {
+    text-align: center;
+    padding: 18px;
+    background: #202020;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.facility:hover {
+    background: #ff3c00;
+    transform: scale(1.03);
+}
+
+footer {
+    text-align: center;
+    background: #000;
+    padding: 22px;
+    color: #aaa;
+}
+
+@media (max-width: 650px) {
+    header {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px;
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .section-title {
+        font-size: 26px;
+    }
+
+    section {
+        padding: 40px 5%;
+    }
+
+    .schedule {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 500px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<header>
+    <div class="logo">FITZONE</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#programs">Programs</a>
+        <a href="#trainers">Trainers</a>
+        <a href="#plans">Plans</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#register">Join Us</a>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<div class="hero" id="home">
+    <h1>BUILD YOUR <span>STRENGTH</span></h1>
+    <p>Train hard. Stay strong. Achieve your fitness goals.</p>
+    <a href="#register" class="btn">JOIN OUR GYM</a>
+</div>
+
+<!-- Workout Programs -->
+<section id="programs">
+    <h2 class="section-title">WORKOUT <span>PROGRAMS</span></h2>
+
+    <div class="cards">
+        <div class="card">
+            <div class="icon"></div>
+            <h3>Strength Training</h3>
+            <p>Build strength and improve muscular fitness with guided exercises.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon"></div>
+            <h3>Cardio Training</h3>
+            <p>Improve stamina and cardiovascular fitness with cardio workouts.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon"></div>
+            <h3>Yoga & Flexibility</h3>
+            <p>Improve flexibility, balance, mobility, and relaxation.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon"></div>
+            <h3>Fitness Boxing</h3>
+            <p>Practice boxing-inspired fitness drills and coordination exercises.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Trainers -->
+<section id="trainers">
+    <h2 class="section-title">OUR <span>TRAINERS</span></h2>
+
+    <div class="cards">
+        <div class="card">
+            <div class="icon"></div>
+            <h3>chinni</h3>
+            <p>Strength Training Coach</p>
+            <p>Focuses on exercise technique and strength development.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon"></div>
+            <h3>Priya</h3>
+            <p>Cardio Coach</p>
+            <p>Helps members improve stamina and fitness routines.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon"></div>
+            <h3>pandu</h3>
+            <p>Yoga Instructor</p>
+            <p>Guides members through yoga and mobility sessions.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Membership Plans -->
+<section id="plans">
+    <h2 class="section-title">MEMBERSHIP <span>PLANS</span></h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Basic Plan</h3>
+            <div class="price">₹999/mo</div>
+            <ul>
+                <li>Gym Access</li>
+                <li>Basic Equipment</li>
+                <li>Locker Facility</li>
+            </ul>
+            <a href="#register" class="btn">Choose Plan</a>
+        </div>
+
+        <div class="card">
+            <h3>Standard Plan</h3>
+            <div class="price">₹1,499/mo</div>
+            <ul>
+                <li>Full Gym Access</li>
+                <li>Group Classes</li>
+                <li>Fitness Assessment</li>
+            </ul>
+            <a href="#register" class="btn">Choose Plan</a>
+        </div>
+
+        <div class="card">
+            <h3>Premium Plan</h3>
+            <div class="price">₹2,499/mo</div>
+            <ul>
+                <li>All Gym Facilities</li>
+                <li>Personal Training Sessions</li>
+                <li>Workout Guidance</li>
+            </ul>
+            <a href="#register" class="btn">Choose Plan</a>
+        </div>
+    </div>
+</section>
+
+<!-- Facilities -->
+<section id="facilities">
+    <h2 class="section-title">GYM <span>FACILITIES</span></h2>
+
+    <div class="cards">
+        <div class="facility">Modern Gym Equipment</div>
+        <div class="facility">Cardio Machines</div>
+        <div class="facility"></div> Changing Rooms</div>
+        <div class="facility">Yoga Studio</div>
+        <div class="facility">Refreshment Area</div>
+        <div class="facility">Personal Training</div>
+    </div>
+</section>
+
+<!-- Class Schedule -->
+<section id="schedule">
+    <h2 class="section-title">CLASS <span>SCHEDULE</span></h2>
+
+    <div class="schedule">
+        <table>
+            <tr>
+                <th>Class</th>
+                <th>Day</th>
+                <th>Time</th>
+                <th>Trainer</th>
+            </tr>
+            <tr>
+                <td>Strength Training</td>
+                <td>Monday</td>
+                <td>7:00 AM</td>
+                <td>Rahul</td>
+            </tr>
+            <tr>
+                <td>Cardio</td>
+                <td>Tuesday</td>
+                <td>8:00 AM</td>
+                <td>Priya</td>
+            </tr>
+            <tr>
+                <td>Yoga</td>
+                <td>Wednesday</td>
+                <td>6:00 AM</td>
+                <td>Anjali</td>
+            </tr>
+            <tr>
+                <td>Fitness Boxing</td>
+                <td>Thursday</td>
+                <td>5:00 PM</td>
+                <td>Rahul</td>
+            </tr>
+            <tr>
+                <td>Group Fitness</td>
+                <td>Saturday</td>
+                <td>7:00 AM</td>
+                <td>Priya</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<!-- Registration Form -->
+<section id="register">
+    <h2 class="section-title">JOIN <span>FITZONE</span></h2>
+
+    <form action="#" method="get">
+        <input type="text" name="name" placeholder="Full Name" required>
+
+        <input type="email" name="email" placeholder="Email Address" required>
+
+        <input type="tel" name="phone"
+               placeholder="Phone Number"
+               pattern="[0-9]{10}"
+               title="Enter a 10-digit phone number"
+               required>
+
+        <select name="plan" required>
+            <option value="">Select Membership Plan</option>
+            <option>Basic Plan</option>
+            <option>Standard Plan</option>
+            <option>Premium Plan</option>
+        </select>
+
+        <select name="program" required>
+            <option value="">Choose Workout Program</option>
+            <option>Strength Training</option>
+            <option>Cardio Training</option>
+            <option>Yoga</option>
+            <option>Fitness Boxing</option>
+        </select>
+
+        <textarea name="message" rows="4"
+                  placeholder="Your fitness goals (optional)"></textarea>
+
+        <button type="submit" class="btn">REGISTER NOW</button>
+    </form>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 FITZONE Gym | Train Hard, Live Strong</p>
+    <p>Email: info@fitzone.example | Phone: 9876543210</p>
+</footer>
+
+</body>
+</html>

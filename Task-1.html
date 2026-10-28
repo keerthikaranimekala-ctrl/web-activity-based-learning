@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f1f5f9;
+            display: flex;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 220px;
+            background: #1e293b;
+            color: white;
+            min-height: 100vh;
+            padding: 25px 15px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #38bdf8;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 14px;
+            margin: 8px 0;
+            border-radius: 6px;
+        }
+
+        .sidebar a:hover {
+            background: #334155;
+            transition: 0.3s;
+        }
+
+        /* Main content */
+        .main {
+            flex: 1;
+            padding: 25px;
+            min-width: 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            color: #1e293b;
+            font-size: 27px;
+        }
+
+        .profile {
+            background: white;
+            padding: 12px 18px;
+            border-radius: 8px;
+        }
+
+        /* Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 22px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #00000010;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #64748b;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .card p {
+            font-size: 25px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        /* Sections */
+        .section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 22px;
+            overflow-x: auto;
+        }
+
+        .section h2 {
+            color: #1e293b;
+            margin-bottom: 18px;
+            font-size: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 420px;
+        }
+
+        th, td {
+            padding: 13px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background: #eff6ff;
+            color: #1d4ed8;
+        }
+
+        /* Attendance bars */
+        .progress {
+            background: #e2e8f0;
+            border-radius: 10px;
+            height: 12px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .bar {
+            height: 100%;
+            background: #22c55e;
+            border-radius: 10px;
+        }
+
+        .low {
+            background: #f59e0b;
+        }
+
+        .announcement {
+            padding: 12px;
+            border-left: 4px solid #2563eb;
+            background: #eff6ff;
+            margin-bottom: 12px;
+            border-radius: 5px;
+        }
+
+        .announcement p {
+            margin-top: 6px;
+            color: #475569;
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            padding: 15px;
+        }
+
+        /* Mobile layout */
+        @media (max-width: 750px) {
+            body {
+                display: block;
+            }
+
+            .sidebar {
+                width: 100%;
+                min-height: auto;
+                padding: 15px;
+            }
+
+            .sidebar h2 {
+                margin-bottom: 10px;
+            }
+
+            .sidebar a {
+                display: inline-block;
+                padding: 9px;
+                font-size: 13px;
+            }
+
+            .main {
+                padding: 15px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>Student Portal</h2>
+        <a href="#home">Dashboard</a>
+        <a href="#details">Student Details</a>
+        <a href="#results">Semester Results</a>
+        <a href="#attendance">Attendance</a>
+        <a href="#subjects">Subjects</a>
+        <a href="#exams">Exam Schedule</a>
+        <a href="#announcements">Announcements</a>
+    </aside>
+
+    <!-- Main Dashboard -->
+    <main class="main" id="home">
+
+        <div class="header">
+            <h1>Student Dashboard</h1>
+            <div class="profile">Welcome, Student hii</div>
+        </div>
+
+        <!-- Student Details -->
+        <section class="section" id="details">
+            <h2>Student Information</h2>
+            <p><b>Name:</b> Your Name</p><br>
+            <p><b>College:</b> NRI University</p><br>
+            <p><b>Course:</b> B.Tech - Information Technology</p><br>
+            <p><b>Year:</b> First Year</p><br>
+            <p><b>Semester:</b> Semester 1</p><br>
+            <p><b>Student ID:</b> IT2026001</p>
+        </section>
+
+        <!-- Summary Cards -->
+        <div class="cards">
+            <div class="card">
+                <h3>Overall Attendance</h3>
+                <p>85%</p>
+            </div>
+
+            <div class="card">
+                <h3>Semester Percentage</h3>
+                <p>82%</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Subjects</h3>
+                <p>6</p>
+            </div>
+        </div>
+
+        <!-- Semester Results -->
+        <section class="section" id="results">
+            <h2>Semester Results</h2>
+            <table>
+                <tr>
+                    <th>Subject</th>
+                    <th>Marks</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td>Mathematics</td>
+                    <td>85/100</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>Physics</td>
+                    <td>80/100</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>Programming in C</td>
+                    <td>90/100</td>
+                    <td>A+</td>
+                </tr>
+                <tr>
+                    <td>English</td>
+                    <td>78/100</td>
+                    <td>B+</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Attendance -->
+        <section class="section" id="attendance">
+            <h2>Attendance Details</h2>
+
+            <p>Mathematics - 90%</p>
+            <div class="progress">
+                <div class="bar" style="width:90%"></div>
+            </div><br>
+
+            <p>Physics - 85%</p>
+            <div class="progress">
+                <div class="bar" style="width:85%"></div>
+            </div><br>
+
+            <p>Programming in C - 75%</p>
+            <div class="progress">
+                <div class="bar low" style="width:75%"></div>
+            </div><br>
+
+            <p>English - 88%</p>
+            <div class="progress">
+                <div class="bar" style="width:88%"></div>
+            </div>
+        </section>
+
+        <!-- Subject Information -->
+        <section class="section" id="subjects">
+            <h2>Subject Information</h2>
+            <table>
+                <tr>
+                    <th>Subject Code</th>
+                    <th>Subject Name</th>
+                    <th>Faculty</th>
+                </tr>
+                <tr>
+                    <td>IT101</td>
+                    <td>Mathematics</td>
+                    <td>Faculty 1</td>
+                </tr>
+                <tr>
+                    <td>IT102</td>
+                    <td>Physics</td>
+                    <td>Faculty 2</td>
+                </tr>
+                <tr>
+                    <td>IT103</td>
+                    <td>Programming in C</td>
+                    <td>Faculty 3</td>
+                </tr>
+                <tr>
+                    <td>IT104</td>
+                    <td>English</td>
+                    <td>Faculty 4</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Examination Schedule -->
+        <section class="section" id="exams">
+            <h2>Examination Schedule</h2>
+            <table>
+                <tr>
+                    <th>Subject</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+                <tr>
+                    <td>Mathematics</td>
+                    <td>10-11-2026</td>
+                    <td>9:30 AM</td>
+                </tr>
+                <tr>
+                    <td>Physics</td>
+                    <td>12-11-2026</td>
+                    <td>9:30 AM</td>
+                </tr>
+                <tr>
+                    <td>Programming in C</td>
+                    <td>14-11-2026</td>
+                    <td>9:30 AM</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Announcements -->
+        <section class="section" id="announcements">
+            <h2>Announcements</h2>
+
+            <div class="announcement">
+                <b>Internal Examinations</b>
+                <p>Check the official examination timetable before your exams.</p>
+            </div>
+
+            <div class="announcement">
+                <b>Assignment Submission</b>
+                <p>Submit your assignments before the deadline.</p>
+            </div>
+
+            <div class="announcement">
+                <b>College Updates</b>
+                <p>Follow official university announcements for updates.</p>
+            </div>
+        </section>
+
+        <footer>
+            © 2026 Student Dashboard | NRI University
+        </footer>
+
+    </main>
+
+</body>
+</html>
+
